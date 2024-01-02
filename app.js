@@ -11,13 +11,14 @@ const authRoutes = require('./routes/auth')
 // error handler
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
+const authenticationUser = require('./middleware/authentication')
 
 app.use(express.json());
 // extra packages
 
 // routes
 app.use('/api/v1/auth',authRoutes)
-app.use('/api/v1/jobs',jobsRoutes)
+app.use('/api/v1/jobs',authenticationUser ,jobsRoutes)
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
