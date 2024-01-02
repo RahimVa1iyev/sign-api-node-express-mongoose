@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 const JobSchema = new mongoose.Schema({
-    comapny: {
+    company: {
         type:String,
         required: [true,'Company is provided field'],
         maxlength: 50
